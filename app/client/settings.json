@@ -1,0 +1,12 @@
+{
+    "START_MODE": "console",
+
+    "LOG_TO_FILE": false,
+    "LOG_TO_CONSOLE": true,
+    "SIMPLIFIED_DEBUG": false,
+    "LOGGING_LEVEL_DEBUG": false,
+
+    "AUTO_START": false,
+    "MULTIPLE_MODE": false,
+    "SIMPLIFIED_ALGORITHMS_MODE": true
+}

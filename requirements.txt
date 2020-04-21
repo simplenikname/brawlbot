@@ -1,0 +1,4 @@
+pytelegrambotapi
+pyautogui
+python-opencv
+prompt_toolkit
