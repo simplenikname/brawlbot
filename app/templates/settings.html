@@ -1,0 +1,36 @@
+{% extends "base.html" %} {% block head %}
+<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Ubuntu:regular,bold&subset=Latin">
+<link rel="stylesheet" href="{{ url_for('static', filename='settings_style.css') }}">
+<title>Настройки</title>
+{% endblock %} {% block content %}
+<div>
+    <img src="{{ url_for('static', filename='./images/Robot(E99A).svg')}}" alt="" class="robot">
+    <a href="/">
+        <span class="to_control">Перейти к управлению</span>
+        <img src="{{ url_for('static', filename='./images/arrow.svg')}}" alt="" class="arrow">
+    </a>
+
+    <span class="status_text">Статус бота</span>
+    <span class="status">ONLINE</span>
+    <img src="{{ url_for('static', filename='./images/green-ellipse.svg')}}" alt="" class="eclipse">
+</div>
+
+<div>
+    <span class="multiple1">Множественный режим</span>
+    <span class="description1">Режим работы бота, при котором он будет работать до тех пор, пока в игре можно получить звездные очки</span>
+
+    <span class="multiple2">Автоповтор</span>
+    <span class="description2">Автоматический запрос повторного запуска бота после завершения его работы</span>
+
+    <span class="multiple3">Упрощенный режим</span>
+    <span class="description3">Бот использует упрощенные алгоритмы атаки и передвижения чтобы гарантировать исправную работу и максимальную производительность</span>
+
+
+    <input type="checkbox" class="checkbox1" id="multiple_mode">
+    <input type="checkbox" class="checkbox2" id="autoreload_mode">
+    <input type="checkbox" class="checkbox3" id="easy_mode">
+
+    <script src="{{ url_for('static', filename='script.js') }}" type="module"></script>
+</div>
+
+{% endblock %}

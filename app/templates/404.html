@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='warning_style.css')}}">
+{{title}}
+
+{% endblock %}
+
+{% block content %}
+<img class="warning" src="{{ url_for('static', filename='./images/warning.png')}}" alt="Warning">
+{% endblock %}
