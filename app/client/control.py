@@ -15,7 +15,7 @@ def get_time():
 
 class CtrlWrapper:
     def __init__(self, config_dictionary):
-
+        self.running_bots_count = 0
         self.running_bots = []
         self.config_dictionary = config_dictionary
         self.START_MODE = config_dictionary.get('START_MODE') or 'console'
@@ -60,8 +60,9 @@ class CtrlWrapper:
             return settings_dict
 
     def __start_bot(self):
-        brawlbot = Bot(self.MULTIPLE_MODE, self.LOGGING_LEVEL_DEBUG, infinify=self.infinity)
+        brawlbot = Bot(self.MULTIPLE_MODE, self.LOGGING_LEVEL_DEBUG, self, infinify=self.infinity)
         brawlbot.start()
+        self.running_bots_count += 1
         self.running_bots.append(brawlbot)
 
 
@@ -69,10 +70,11 @@ class CtrlWrapper:
         for bot in self.running_bots:
             print(f'[{get_time()}] {Fore.GREEN}✓{Fore.RESET} Бот {bot} остановлен')
             bot.kill()
+            self.running_bots_count -= 1
             self.running_bots.remove(bot)
 
     def init_brawlbot_start(self):
-        if len(self.running_bots) >= 1:
+        if self.running_bots_count >= 1:
             print(f'[{get_time()}] {Fore.YELLOW}!{Fore.RESET} Отслежена попытка запустить бота в параллельном выполнении... Запуск бота отклонен.')
         else:
             print(f'[{get_time()}] {Fore.GREEN}✓{Fore.RESET} Инициализация бота завершена. Запуск...')

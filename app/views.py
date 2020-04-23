@@ -26,8 +26,10 @@ def settings():
     global ctrl
     if request.method == 'POST':
         content = request.get_json()
+        # print(content)
         if content['action'] == 'start':
-            if len(ctrl.running_bots) == 0:
+            # print(ctrl.running_bots_count)
+            if ctrl.running_bots_count == 0:
                 ctrl = CtrlWrapper(content['config'])
                 ctrl.start()
             else:

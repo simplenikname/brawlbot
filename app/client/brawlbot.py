@@ -52,7 +52,7 @@ class Attacker(Worker):
 
 
 class Bot(Worker):
-    def __init__(self, mode, verbose, start_from_battle_stage=False, infinify=False, *args, **kwargs):
+    def __init__(self, mode, verbose, host,  start_from_battle_stage=False, infinify=False, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.mode = mode
         self.verbose = True if verbose is False else False
@@ -60,6 +60,7 @@ class Bot(Worker):
 
         self.infinify = infinify
         self.start_from_battle_stage = start_from_battle_stage
+        self.host = host
 
            
     def log_to_console(self,
@@ -96,8 +97,9 @@ class Bot(Worker):
                 'Кнопка ИГРАТЬ не обнаружена на экране. Завершение работы.',
                 level='erro')
             self.kill()
-            exit(code=1)
-
+            self.host.stop_all_bots()
+            return 1
+ 
     def start_battle(self):
         click(self.play_button)
 
@@ -151,7 +153,7 @@ class Bot(Worker):
         while not self.killed:
             if not self.start_from_battle_stage:
                 # проверка присудствия на экране кнопки ИГРАТЬ
-                self.check_play_button()
+                if self.check_play_button() == 1: return
                 # начатие боя
                 self.start_battle()
                 # ожидание окончания загрузки
@@ -174,5 +176,7 @@ class Bot(Worker):
             # проверка возможности открыть сундук
             self.check_chest()
             if self.infinify is False:
-                self.kill()
+                self.host.stop_all_bots()
+                return
+            
 
