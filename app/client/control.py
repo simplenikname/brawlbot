@@ -4,8 +4,6 @@ from json import load
 from time import sleep
 
 from colorama import Fore, init
-# from prompt_toolkit import prompt
-# from prompt_toolkit.completion import NestedCompleter
 from prompt_toolkit.shortcuts import ProgressBar, button_dialog
 
 from app.client.brawlbot import Bot

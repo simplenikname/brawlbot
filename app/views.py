@@ -32,8 +32,7 @@ def settings():
             if ctrl.running_bots_count == 0:
                 ctrl = CtrlWrapper(content['config'])
                 ctrl.start()
-            else:
-                return 'Бот уже запущен!'
+            
         elif content['action'] == 'stop':
             ctrl.stop_all_bots()
     return render_template('settings.html')
