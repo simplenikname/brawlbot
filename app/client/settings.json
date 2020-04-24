@@ -3,7 +3,7 @@
 
     "LOG_TO_FILE": false,
     "LOG_TO_CONSOLE": true,
-    "SIMPLIFIED_DEBUG": false,
+    "LOG_TO_SERVER": true,
     "LOGGING_LEVEL_DEBUG": false,
 
     "AUTO_START": false,
