@@ -3,10 +3,9 @@
 
     "LOG_TO_FILE": false,
     "LOG_TO_CONSOLE": true,
-    "LOG_TO_SERVER": true,
+    "LOG_TO_REQUESTS_SERVER": true,
     "LOGGING_LEVEL_DEBUG": false,
 
-    "AUTO_START": false,
     "MULTIPLE_MODE": false,
     "SIMPLIFIED_ALGORITHMS_MODE": true,
     "INFINITE_MODE": false
