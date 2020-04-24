@@ -38,6 +38,7 @@ class CtrlWrapper:
     def __init__(self, settings: Settings):
 
         self.settings = settings
+        self.running_bots_count = 0 
 
     def __start_bot(self, bot):
         bot.start()
