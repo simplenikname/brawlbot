@@ -1,13 +1,15 @@
 import os
+from json import load
 
 from flask import render_template, request, url_for
 
 from app import app
-from app.client.control import CtrlWrapper
+from app.client.control import CtrlWrapper, Settings
 
 
-default = ''
-ctrl = CtrlWrapper()
+with open('/app/client/settings.json', 'r') as json:
+    default_settings = load(json)
+ctrl = CtrlWrapper(default_settings)
 
 
 @app.after_request
@@ -27,15 +29,13 @@ def control():
 def settings():
     global ctrl
     if request.method == 'POST':
-        content = request.get_json()
-        # print(content)
-        if content['action'] == 'start':
-            # print(ctrl.running_bots_count)
+        action = request.get_json()['action']
+        settings = request.get_json()['config']
+        if action == 'start':
             if ctrl.running_bots_count == 0:
-                ctrl = CtrlWrapper(content['config'])
+                ctrl = CtrlWrapper(Settings(settings))
                 ctrl.start()
-            
-        elif content['action'] == 'stop':
+        elif action == 'stop':
             ctrl.stop_all_bots()
     return render_template('settings.html')
 

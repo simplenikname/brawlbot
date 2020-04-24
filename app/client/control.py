@@ -6,7 +6,7 @@ from colorama import Fore, init
 from app.client.brawlbot import Bot
 
 
-def get_time():
+def get_time() -> str:
     return datetime.strftime(datetime.now(), "%H:%M:%S")
 
 class Settings:

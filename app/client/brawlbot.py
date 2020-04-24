@@ -137,7 +137,7 @@ class Bot(Worker):
         self.log_to_console(found_data['battle_result'])
 
     def check_chest(self, t=.5):
-        chest = Point(x=414, y=968)
+        chest = Point(x=414, y=968) # FHD
         self.log_to_console('Обнаружение сундука...')
         click(chest)
         sleep(t if t > 0 else .5)
