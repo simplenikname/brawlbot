@@ -45,7 +45,7 @@ class CtrlWrapper:
         self.running_bots_count += 1
         self.running_bots.append(bot)
 
-    def __start_bot(self, bot):
+    def __stop_bot(self, bot):
         bot.kill()
         bot.log_to_console(f'Бот {bot} остановлен', level='succ')
         self.running_bots_count -= 1
