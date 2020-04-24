@@ -7,6 +7,7 @@ from pyautogui import click, press, keyDown, keyUp, size, center, Point
 
 from app.client.utils import (continue_if_not_locate_on_screen, find, on_screen,
                    wait_until_locate_on_screen)
+from app.client.control import Settings
 
 init()
 
@@ -52,24 +53,19 @@ class Attacker(Worker):
 
 
 class Bot(Worker):
-    def __init__(self, mode, verbose, host,  start_from_battle_stage=False, infinity=False, *args, **kwargs):
-        super().__init__(*args, **kwargs)
-        self.mode = mode
-        self.verbose = True if verbose is False else False
-        self.demons = []
+    def __init__(self, settings: Settings, *args, **kwargs):
 
-        self.infinity = infinity
-        self.start_from_battle_stage = start_from_battle_stage
-        self.host = host
+        super().__init__(*args, **kwargs)
+
+        self.settings = settings
 
            
     def log_to_console(self,
-                        message,
-                        level: str = 'info',
-                        parse_mode=None,
-                        **kwargs):
+                       message,
+                       level: str = 'info',
+                       **kwargs):
         '''
-        :param level: succ, erro, warn, info, debg
+        level - succ, erro, warn, info, debg
         '''
         if level == 'succ':
             display_mode = f'{Fore.GREEN}[✓]{Fore.RESET}'
@@ -77,14 +73,14 @@ class Bot(Worker):
             display_mode = f'{Fore.RED}[x]{Fore.RESET}'
         elif level == 'warn':
             display_mode = f'{Fore.YELLOW}[!]{Fore.RESET}'
-        elif level == 'debg':
+        elif level == 'debg' and self.settings.log_level_debug is True:
             display_mode = f'{Fore.LIGHTWHITE_EX}--→{Fore.RESET}'
         elif level == 'info':
             display_mode = f'{Fore.CYAN}[~]{Fore.RESET}'
-        else:
-            display_mode = f'{Fore.BLUE}[*]{Fore.RESET}' # •
+        # else:
+        #     display_mode = f'{Fore.BLUE}[*]{Fore.RESET}' # •
         date = datetime.strftime(datetime.now(), '%H:%M:%S')
-        message = f'[{date}] {display_mode} {message}'
+        message = f'{self} [{date}] {display_mode} {message}'
         print(message)
 
     def check_play_button(self):
@@ -95,8 +91,7 @@ class Bot(Worker):
         else:
             self.log_to_console(
                 'Кнопка ИГРАТЬ не обнаружена на экране. Завершение работы.',
-                level='erro')
-            self.kill()
+                level='warn')
             self.host.stop_all_bots()
             return 1
  
