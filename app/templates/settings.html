@@ -17,18 +17,16 @@
 
 <div>
     <span class="multiple1">Множественный режим</span>
-    <span class="description1">Режим работы бота, при котором он будет работать до тех пор, пока в игре можно получить звездные очки</span>
+    <span class="description1">Режим работы бота, при котором он будет работать до тех пор, пока в игре можно получить
+        звездные очки</span>
 
-    <span class="multiple2">Автоповтор</span>
-    <span class="description2">Автоматический запрос повторного запуска бота после завершения его работы</span>
-
-    <span class="multiple3">Упрощенный режим</span>
-    <span class="description3">Бот использует упрощенные алгоритмы атаки и передвижения чтобы гарантировать исправную работу и максимальную производительность</span>
+    <span class="multiple2">Упрощенный режим</span>
+    <span class="description2">Бот использует упрощенные алгоритмы атаки и передвижения чтобы гарантировать исправную
+        работу и максимальную производительность</span>
 
 
-    <input type="checkbox" class="checkbox1" id="multiple_mode">
-    <input type="checkbox" class="checkbox2" id="autoreload_mode">
-    <input type="checkbox" class="checkbox3" id="easy_mode">
+    <input type="checkbox" class="auto_mode_checkbox" id="auto_mode_checkbox">
+    <input type="checkbox" class="easy_mode_checkbox" id="easy_mode_checkbox" checked=>
 
     <script src="{{ url_for('static', filename='script.js') }}" type="module"></script>
 </div>
