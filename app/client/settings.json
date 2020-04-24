@@ -3,7 +3,7 @@
 
     "LOG_TO_FILE": false,
     "LOG_TO_CONSOLE": true,
-    "LOG_TO_REQUESTS_SERVER": true,
+    "LOG_REQUESTS_TO_SERVER": true,
     "LOGGING_LEVEL_DEBUG": false,
 
     "MULTIPLE_MODE": false,
