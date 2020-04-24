@@ -3,12 +3,12 @@ let settings = {
 
   LOG_TO_FILE: false,
   LOG_TO_CONSOLE: true,
-  LOG_TO_SERVER: true,
+  LOG_REQUESTS_TO_SERVER: true,
   LOGGING_LEVEL_DEBUG: false,
 
-  AUTO_START: false,
   MULTIPLE_MODE: false,
   SIMPLIFIED_ALGORITHMS_MODE: true,
+  INFINITE_MODE: false
 };
 
 const DEBUG = true;
@@ -50,13 +50,13 @@ function postData(url = "", data = {}) {
 if (document.title == "Контроль бота") {
   // control.html
   set_listener("log_to_file_checkbox", settings.LOG_TO_FILE);
-  set_listener("log_to_server_checkbox", settings.LOG_TO_SERVER);
+  set_listener("log_requests_to_server_checkbox", settings.LOG_REQUESTS_TO_SERVER);
   set_listener("log_to_console_checkbox", settings.LOG_TO_CONSOLE);
   set_listener("log_level_debug_checkbox", settings.LOGGING_LEVEL_DEBUG);
-  set_listener("infinite_checkbox", settings.MULTIPLE_MODE);
+  set_listener("infinite_checkbox", settings.INFINITE_MODE);
 } else if (document.title == "Настройки") {
   // settings.html
-  set_listener("auto_mode_checkbox", settings.AUTO_START);
+  set_listener("multiple_mode_checkbox", settings.MULTIPLE_MODE);
   set_listener("easy_mode_checkbox", settings.SIMPLIFIED_ALGORITHMS_MODE);
 }
 
