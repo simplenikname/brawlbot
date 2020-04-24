@@ -52,12 +52,12 @@ if (document.title == "Контроль бота") {
   set_listener("log_to_file_checkbox", settings.LOG_TO_FILE);
   set_listener("log_requests_to_server_checkbox", settings.LOG_REQUESTS_TO_SERVER);
   set_listener("log_to_console_checkbox", settings.LOG_TO_CONSOLE);
-  set_listener("log_level_debug_checkbox", settings.LOGGING_LEVEL_DEBUG);
+  set_listener("logging_level_debug_checkbox", settings.LOGGING_LEVEL_DEBUG);
   set_listener("infinite_checkbox", settings.INFINITE_MODE);
 } else if (document.title == "Настройки") {
   // settings.html
   set_listener("multiple_mode_checkbox", settings.MULTIPLE_MODE);
-  set_listener("easy_mode_checkbox", settings.SIMPLIFIED_ALGORITHMS_MODE);
+  set_listener("simplefield_mode_checkbox", settings.SIMPLIFIED_ALGORITHMS_MODE);
 }
 
 //==================================//
