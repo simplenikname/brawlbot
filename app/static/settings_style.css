@@ -1,177 +1,127 @@
 * {
-    padding: 0px;
-    margin: 0px;
-    font-family: Ubuntu;
-    color: #313636;
+  padding: 0px;
+  margin: 0px;
+  font-family: Ubuntu;
+  color: #313636;
+  font-style: normal;
+  font-weight: normal;
+  position: absolute;
 }
 
 .robot {
-    position: absolute;
-    width: 24px;
-    height: 24px;
-    left: 24px;
-    top: 38px;
-    font-family: Segoe MDL2 Assets;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 24px;
-    line-height: 24px;
+  width: 24px;
+  height: 24px;
+  left: 24px;
+  top: 38px;
+  font-family: Segoe MDL2 Assets;
+
+  font-size: 24px;
+  line-height: 24px;
 }
 
 .to_control {
-    position: absolute;
-    width: 165px;
-    height: 17px;
-    left: 148px;
-    top: 42px;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 15px;
-    line-height: 17px;
+  width: 165px;
+  height: 17px;
+  left: 148px;
+  top: 42px;
+
+  font-size: 15px;
+  line-height: 17px;
 }
 
 .arrow {
-    position: absolute;
-    width: 16px;
-    height: 16px;
-    left: 323px;
-    top: 42px;
-    font-family: Segoe MDL2 Assets;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 16px;
-    line-height: 16px;
+  width: 16px;
+  height: 16px;
+  left: 323px;
+  top: 42px;
+  font-family: Segoe MDL2 Assets;
+
+  font-size: 16px;
+  line-height: 16px;
 }
 
 .status_text {
-    position: absolute;
-    width: 100px;
-    height: 20px;
-    left: 27px;
-    top: 91px;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 16px;
-    line-height: 18px;
+  width: 100px;
+  height: 20px;
+  left: 27px;
+  top: 91px;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 18px;
 }
 
 .status {
-    position: absolute;
-    width: 61px;
-    height: 19px;
-    left: 255px;
-    top: 90px;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 16px;
-    line-height: 18px;
-    color: #00FF19;
+  width: 61px;
+  height: 19px;
+  left: 255px;
+  top: 90px;
+
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 18px;
+  color: #00ff19;
 }
 
 .eclipse {
-    position: absolute;
-    width: 11px;
-    height: 11px;
-    left: 321px;
-    top: 94px;
+  width: 11px;
+  height: 11px;
+  left: 321px;
+  top: 94px;
 }
 
 .multiple1 {
-    position: absolute;
-    width: 182px;
-    height: 18px;
-    left: 19px;
-    top: 128px;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 16px;
-    line-height: 18px;
-    color: #313636;
+  width: 182px;
+  height: 18px;
+  left: 19px;
+  top: 128px;
+
+  font-size: 16px;
+  line-height: 18px;
+  color: #313636;
 }
 
 .description1 {
-    position: absolute;
-    width: 245px;
-    height: 64px;
-    left: 19px;
-    top: 152px;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 14px;
-    line-height: 16px;
-    color: #B9B9B9;
+  width: 245px;
+  height: 64px;
+  left: 19px;
+  top: 152px;
+
+  font-size: 14px;
+  line-height: 16px;
+  color: #b9b9b9;
 }
 
 .multiple2 {
-    position: absolute;
-    width: 90px;
-    height: 18px;
-    left: 19px;
-    top: 224px;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 16px;
-    line-height: 18px;
+  width: 156px;
+  height: 18px;
+  left: 19px;
+  top: 225px;
+
+  font-size: 16px;
+  line-height: 18px;
 }
 
 .description2 {
-    position: absolute;
-    width: 245px;
-    height: 48px;
-    left: 20px;
-    top: 248px;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 14px;
-    line-height: 16px;
-    color: #B9B9B9;
+  width: 245px;
+  height: 80px;
+  left: 19px;
+  top: 249px;
+
+  font-size: 14px;
+  line-height: 16px;
+  color: #b9b9b9;
 }
 
-.multiple3 {
-    position: absolute;
-    width: 156px;
-    height: 18px;
-    left: 19px;
-    top: 305px;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 16px;
-    line-height: 18px;
+.auto_mode_checkbox {
+  width: 31px;
+  height: 14px;
+  left: 293px;
+  top: 130px;
 }
 
-.description3 {
-    position: absolute;
-    width: 245px;
-    height: 80px;
-    left: 19px;
-    top: 329px;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 14px;
-    line-height: 16px;
-    color: #B9B9B9;
-}
-
-.checkbox1 {
-    position: absolute;
-    width: 31px;
-    height: 14px;
-    left: 293px;
-    top: 130px;
-}
-
-.checkbox2 {
-    position: absolute;
-    width: 31px;
-    height: 14px;
-    left: 293px;
-    top: 226px;
-}
-
-.checkbox3 {
-    position: absolute;
-    width: 31px;
-    height: 14px;
-    left: 293px;
-    top: 306px;
+.easy_mode_checkbox {
+  width: 31px;
+  height: 14px;
+  left: 293px;
+  top: 226px;
 }
