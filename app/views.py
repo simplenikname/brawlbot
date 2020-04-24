@@ -7,7 +7,7 @@ from app import app
 from app.client.control import CtrlWrapper, Settings
 
 
-with open('/app/client/settings.json', 'r') as json:
+with open('./app/client/settings.json', 'r') as json:
     default_settings = load(json)
 ctrl = CtrlWrapper(default_settings)
 

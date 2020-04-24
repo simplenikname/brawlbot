@@ -7,7 +7,6 @@ from pyautogui import click, press, keyDown, keyUp, size, center, Point
 
 from app.client.utils import (continue_if_not_locate_on_screen, find, on_screen,
                    wait_until_locate_on_screen)
-from app.client.control import Settings
 
 init()
 
@@ -53,7 +52,7 @@ class Attacker(Worker):
 
 
 class Bot(Worker):
-    def __init__(self, settings: Settings, *args, **kwargs):
+    def __init__(self, settings, *args, **kwargs):
 
         super().__init__(*args, **kwargs)
 
