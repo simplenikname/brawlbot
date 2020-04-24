@@ -5,7 +5,9 @@ from flask import render_template, request, url_for
 from app import app
 from app.client.control import CtrlWrapper
 
-ctrl = CtrlWrapper(CtrlWrapper.load_from_json('./app/client/settings.json'))
+
+default = ''
+ctrl = CtrlWrapper()
 
 
 @app.after_request
