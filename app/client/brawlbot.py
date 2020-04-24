@@ -52,13 +52,13 @@ class Attacker(Worker):
 
 
 class Bot(Worker):
-    def __init__(self, mode, verbose, host,  start_from_battle_stage=False, infinify=False, *args, **kwargs):
+    def __init__(self, mode, verbose, host,  start_from_battle_stage=False, infinity=False, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.mode = mode
         self.verbose = True if verbose is False else False
         self.demons = []
 
-        self.infinify = infinify
+        self.infinity = infinity
         self.start_from_battle_stage = start_from_battle_stage
         self.host = host
 
@@ -175,7 +175,7 @@ class Bot(Worker):
             self.process_battle_results()
             # проверка возможности открыть сундук
             self.check_chest()
-            if self.infinify is False:
+            if self.infinity is False:
                 self.host.stop_all_bots()
                 return
             
