@@ -1,262 +1,255 @@
 * {
-    margin: 0px;
-    padding: 0px;
-}
-
-span {
-    font-family: Ubuntu;
-    color: #313636;
+  margin: 0px;
+  padding: 0px;
+  position: absolute;
+  font-family: Ubuntu;
+  color: #313636;
 }
 
 .robot {
-    position: absolute;
-    width: 24px;
-    height: 24px;
-    left: 24px;
-    top: 38px;
+  width: 24px;
+  height: 24px;
+  left: 24px;
+  top: 38px;
 }
 
 .go__settings {
-    position: absolute;
-    width: 161px;
-    height: 17px;
-    left: 148px;
-    top: 42px;
-    font-size: 15px;
-    line-height: 17px;
+  width: 161px;
+  height: 17px;
+  left: 148px;
+  top: 42px;
+  font-size: 15px;
+  line-height: 17px;
 }
 
 .arrow {
-    position: absolute;
-    width: 15.95px;
-    height: 14.7px;
-    left: 323.05px;
-    top: 42.65px;
+  width: 15.95px;
+  height: 14.7px;
+  left: 323.05px;
+  top: 42.65px;
 }
 
 .state__pre {
-    position: absolute;
-    width: 100px;
-    height: 20px;
-    left: 27px;
-    top: 91px;
-    font-weight: bold;
-    font-size: 16px;
-    line-height: 18px;
+  width: 100px;
+  height: 20px;
+  left: 27px;
+  top: 91px;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 18px;
 }
 
 .state {
-    position: absolute;
-    width: 61px;
-    height: 19px;
-    left: 255px;
-    top: 90px;
-    font-weight: bold;
-    font-size: 16px;
-    line-height: 18px;
-    color: #00FF19;
+  width: 61px;
+  height: 19px;
+  left: 255px;
+  top: 90px;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 18px;
+  color: #00ff19;
 }
 
 .state__img {
-    position: absolute;
-    width: 11px;
-    height: 11px;
-    left: 321px;
-    top: 94px;
+  width: 11px;
+  height: 11px;
+  left: 321px;
+  top: 94px;
 }
 
 .brawlstars {
-    position: absolute;
-    width: 189px;
-    height: 150px;
-    left: -44px;
-    top: 139px;
+  width: 189px;
+  height: 150px;
+  left: -44px;
+  top: 139px;
 }
 
 .panel__ctrl {
-    position: absolute;
-    width: 187px;
-    height: 138px;
-    left: 152px;
-    top: 139px;
-    background: #F2F2F2;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    border-radius: 20px;
+  width: 187px;
+  height: 138px;
+  left: 152px;
+  top: 139px;
+  background: #f2f2f2;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 20px;
 }
 
 .panel__ctrl_span {
-    position: absolute;
-    width: 165px;
-    height: 18px;
-    left: 165px;
-    top: 158px;
-    font-size: 16px;
-    line-height: 18px;
+  width: 165px;
+  height: 18px;
+  left: 165px;
+  top: 158px;
+  font-size: 16px;
+  line-height: 18px;
 }
 
 .panel__stop,
 .panel__start {
-    border: none;
-    border-radius: 20px;
-    color: #F2F2F2;
-    font-weight: bold;
+  border: none;
+  border-radius: 20px;
+  color: #f2f2f2;
+  font-weight: bold;
 }
 
 .panel__start {
-    position: absolute;
-    width: 123px;
-    height: 32px;
-    left: 165px;
-    top: 187px;
-    background: #00FF19;
+  width: 123px;
+  height: 32px;
+  left: 165px;
+  top: 187px;
+  background: #00ff19;
 }
 
 .panel__stop {
-    position: absolute;
-    width: 97px;
-    height: 32px;
-    left: 165px;
-    top: 230px;
-    background: #FF5656;
+  width: 97px;
+  height: 32px;
+  left: 165px;
+  top: 230px;
+  background: #ff5656;
 }
 
 .panel__debug {
-    position: absolute;
-    width: 358px;
-    height: 197px;
-    left: -19px;
-    top: 304px;
-    background: #F2F2F2;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    border-radius: 20px;
-}
-
-.gear {
-    position: absolute;
-    width: 24px;
-    height: 24px;
-    left: 306px;
-    top: 315px;
-    font-family: Segoe MDL2 Assets;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 24px;
-    line-height: 24px;
+  width: 358px;
+  height: 197px;
+  left: -19px;
+  top: 304px;
+  background: #f2f2f2;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 20px;
 }
 
 .panel__debug_title {
-    position: absolute;
-    width: 149px;
-    height: 18px;
-    left: 16px;
-    top: 324px;
-    font-weight: bold;
-    font-size: 15px;
+  width: 149px;
+  height: 18px;
+  left: 16px;
+  top: 324px;
+  font-weight: bold;
+  font-size: 15px;
 }
 
 .checkbox1 {
-    position: absolute;
-    width: 18px;
-    height: 18px;
-    left: 16px;
-    top: 361px;
+  width: 18px;
+  height: 18px;
+  left: 16px;
+  top: 361px;
 }
 
 .checkbox2 {
-    position: absolute;
-    width: 18px;
-    height: 18px;
-    left: 16px;
-    top: 393px;
-    background-color: #F2F2F2;
+  width: 18px;
+  height: 18px;
+  left: 16px;
+  top: 393px;
+  background-color: #f2f2f2;
 }
 
 .checkbox3 {
-    position: absolute;
-    width: 18px;
-    height: 18px;
-    left: 16px;
-    top: 425px;
-    background: #EEEEEE;
+  width: 18px;
+  height: 18px;
+  left: 16px;
+  top: 425px;
+  background: #eeeeee;
 }
 
 .checkbox4 {
-    position: absolute;
-    width: 18px;
-    height: 18px;
-    left: 16px;
-    top: 454px;
-    background: #EEEEEE;
+  width: 18px;
+  height: 18px;
+  left: 16px;
+  top: 454px;
+  background: #eeeeee;
 }
 
-.easy__debug {
-    position: absolute;
-    width: 142px;
-    height: 17px;
-    left: 48px;
-    top: 361px;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 14px;
-    line-height: 16px;
+.log_to_server_text {
+  width: 231px;
+  height: 17px;
+  left: 48px;
+  top: 361px;
+
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 16px;
 }
 
 .log__file {
-    position: absolute;
-    width: 144px;
-    height: 17px;
-    left: 48px;
-    top: 393px;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 14px;
-    line-height: 16px;
+  width: 264px;
+  height: 17px;
+  left: 48px;
+  top: 393px;
+
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 16px;
 }
 
 .log__console {
-    position: absolute;
-    width: 166px;
-    height: 17px;
-    left: 48px;
-    top: 425px;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 14px;
-    line-height: 16px;
+  width: 166px;
+  height: 17px;
+  left: 48px;
+  top: 425px;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 16px;
 }
 
 .log__debug {
-    position: absolute;
-    width: 194px;
-    height: 17px;
-    left: 48px;
-    top: 457px;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 14px;
-    line-height: 16px;
+  width: 194px;
+  height: 17px;
+  left: 48px;
+  top: 457px;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 16px;
 }
 
 .line__bottom {
-    position: absolute;
-    width: 31px;
-    height: 3px;
-    left: 164px;
-    top: 598px;
-    background: #EDEAEA;
-    border-radius: 20px;
-    transform: matrix(1, 0, 0, -1, 0, 0);
+  width: 31px;
+  height: 3px;
+  left: 164px;
+  top: 598px;
+  background: #edeaea;
+  border-radius: 20px;
+  transform: matrix(1, 0, 0, -1, 0, 0);
 }
 
 .by {
-    /* Made with ❤ to Bots */
-    position: absolute;
-    width: 150px;
-    height: 12px;
-    left: 122px;
-    top: 614px;
-    font-family: Ubuntu;
-    font-size: 12px;
-    line-height: 14px;
-    color: #000000;
+  /* Made with ❤ to Bots */
+  width: 150px;
+  height: 12px;
+  left: 122px;
+  top: 614px;
+  font-size: 12px;
+  line-height: 14px;
+  color: #000000;
 }
+
+#infinite__mode__text {
+  width: 158px;
+  height: 18px;
+  left: 24px;
+  top: 523px;
+
+  font-size: 16px;
+  line-height: 18px;
+}
+
+#infinite__mode__description {
+  width: 245px;
+  height: 32px;
+  left: 25px;
+  top: 547px;
+
+  font-size: 14px;
+  line-height: 16px;
+
+  color: #b9b9b9;
+}
+
+#infinite_checkbox {
+  width: 19px;
+  height: 19px;
+  left: 300px;
+  top: 523px;
+}
+

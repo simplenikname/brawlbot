@@ -24,21 +24,25 @@
         </div>
         <div>
             <div class="panel__debug"></div>
-            <span class="panel__debug_title">Настройки отладки</span>
-            <input class="checkbox1" id="easy_debug" type="checkbox" name="">
-            <input class="checkbox2" id="log_to_file" type="checkbox" name="">
-            <input class="checkbox3" id="log_to_console" type="checkbox" name="">
-            <input class="checkbox4" id="log_level_debug" type="checkbox" name="">
+            <span class="panel__debug_title">Настройки логов</span>
+            <input class="checkbox1" id="log_to_server_checkbox" type="checkbox" name="" checked='checked'>
+            <input class="checkbox2" id="log_to_file_checkbox" type="checkbox" name="">
+            <input class="checkbox3" id="log_to_console_checkbox" type="checkbox" name="">
+            <input class="checkbox4" id="log_level_debug_checkbox" type="checkbox" name="">
 
-            <img src="{{ url_for('static', filename='./images/gear.svg')}}" alt="" class="gear">
-
-            <span class="easy__debug">Упрощенная отладка</span>
-            <span class="log__file">Логгирование в файл</span>
+            <span class="log_to_server_text">Логгирование запросов на сервер</span>
+            <span class="log__file">Логгирование результатов боя в файл</span>
             <span class="log__console">Логгирование в консоль</span>
-            <span class="log__debug">Логгирование уровня DEBUG</span>
+            <span class="log__debug">Логгирование уровня debug</span>
+        </div>
+        <div class="infinite_mode">
+            <span id="infinite__mode__text">Бесконечный режим</span>
+            <span id="infinite__mode__description">Автоматический перезапуск бота после завершения его работы</span>
+            <input type="checkbox" name="checkbox" id="infinite_checkbox">
         </div>
         <div class="line__bottom"></div>
-        <span class="by">Made with <span style="color: red;">❤</span> to <span style="color: #4D6479;">Bots</span></span>
+        <span class="by">Made with <span style="color: red;">❤</span> to <span
+                style="color: #4D6479;">Bots</span></span>
     </div>
 </div>
 <script src="{{ url_for('static', filename='script.js')}}" type="module"></script>
