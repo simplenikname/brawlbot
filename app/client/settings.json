@@ -8,5 +8,6 @@
 
     "AUTO_START": false,
     "MULTIPLE_MODE": false,
-    "SIMPLIFIED_ALGORITHMS_MODE": true
+    "SIMPLIFIED_ALGORITHMS_MODE": true,
+    "INFINITE_MODE": false
 }
