@@ -146,7 +146,7 @@ class Bot(Worker):
 
     def run(self):
         while not self.killed:
-            if not self.start_from_battle_stage:
+            if not self.settings.start_from_battle_stage:
                 # проверка присудствия на экране кнопки ИГРАТЬ
                 if self.check_play_button() == 1: return
                 # начатие боя
@@ -170,7 +170,7 @@ class Bot(Worker):
             self.process_battle_results()
             # проверка возможности открыть сундук
             self.check_chest()
-            if self.infinity is False:
+            if self.settings.infinity_mode is False:
                 self.host.stop_all_bots()
                 return
             

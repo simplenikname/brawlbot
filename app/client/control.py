@@ -18,9 +18,11 @@ class Settings:
                  log_requests_to_server: bool,
                  multiple_mode: bool,
                  infinity_mode: bool,
+                 start_from_battle_stage: bool,
                  simplified_algorithms_mode: bool):
 
         self.start_mode = start_mode
+        self.start_from_battle_stage = start_from_battle_stage
 
         self.log_to_file = log_to_file
         self.log_to_console = log_to_console
