@@ -4,6 +4,7 @@
     position: absolute;
     font-family: Ubuntu;
     color: #313636;
+    outline: none;
 }
 
 .robot {
@@ -42,12 +43,11 @@
 .state {
     width: 61px;
     height: 19px;
-    left: 255px;
     top: 90px;
     font-weight: bold;
     font-size: 16px;
     line-height: 18px;
-    color: #00ff19;
+    /* color: #00ff19; */
 }
 
 .state__img {
@@ -214,7 +214,7 @@
 .by {
     /* Made with ❤ to Bots */
     position: absolute;
-    width: 115px;
+    width: 120px;
     height: 12px;
     left: 122px;
     top: 614px;

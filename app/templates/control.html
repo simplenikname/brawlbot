@@ -10,9 +10,11 @@
         <img class="arrow" src="{{ url_for('static', filename='./images/arrow.svg')}}">
     </a>
     <div>
-        <span class="state__pre">Статус бота</span>
-        <span class="state">ONLINE</span>
-        <img class="state__img" src="{{ url_for('static', filename='./images/green-ellipse.svg')}}">
+        <span class="state__pre">Статус бота</span> {% if state == 'online' %}
+        <span class="state" id="bot__state" style="color: #00ff19;left: 255px;">ONLINE</span>
+        <img class="state__img" src="{{ url_for('static', filename='./images/green-ellipse.svg')}}"> {% elif state == 'offline' %}
+        <span class="state" id="bot__state" style="color: #FF0000;left: 250px;">OFFLINE</span>
+        <img class="state__img" src="{{ url_for('static', filename='./images/red-ellipse.svg')}}"> {% endif %}
     </div>
     <div>
         <div>

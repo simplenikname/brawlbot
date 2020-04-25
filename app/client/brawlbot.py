@@ -52,10 +52,12 @@ class Attacker(Worker):
 
 
 class Bot(Worker):
-    def __init__(self, settings, *args, **kwargs):
+    def __init__(self, settings, host, *args, **kwargs):
 
         super().__init__(*args, **kwargs)
 
+        self.demons = []
+        self.host = host
         self.settings = settings
 
            
@@ -76,10 +78,11 @@ class Bot(Worker):
             display_mode = f'{Fore.LIGHTWHITE_EX}--→{Fore.RESET}'
         elif level == 'info':
             display_mode = f'{Fore.CYAN}[~]{Fore.RESET}'
-        # else:
-        #     display_mode = f'{Fore.BLUE}[*]{Fore.RESET}' # •
+        else:
+            return  
+            # display_mode = f'{Fore.BLUE}[*]{Fore.RESET}' # •
         date = datetime.strftime(datetime.now(), '%H:%M:%S')
-        message = f'{self} [{date}] {display_mode} {message}'
+        message = f'[{date}] {display_mode} {message}'
         print(message)
 
     def check_play_button(self):
@@ -89,8 +92,9 @@ class Bot(Worker):
                 'Кнопка ИГРАТЬ обнаружена на экране. Бот начал работу...')
         else:
             self.log_to_console(
-                'Кнопка ИГРАТЬ не обнаружена на экране. Завершение работы.',
+                'Кнопка ИГРАТЬ не обнаружена на экране. Завершение работы...',
                 level='warn')
+            # self.log_to_console('', level='erro')
             self.host.stop_all_bots()
             return 1
  

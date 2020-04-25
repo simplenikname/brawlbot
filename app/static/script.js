@@ -80,3 +80,23 @@ document.getElementById("panel__stop").onclick = function() {
         config: settings,
     });
 };
+
+const current_state = document.getElementById('bot__state').innerText
+
+setInterval(async() => {
+    const response = await fetch(document.baseURI + "state", {
+        method: "POST",
+        // headers: {
+        //     "Content-Type": "application/json",
+        // }
+    });
+
+    const response_json = await response.json();
+
+    console.log(current_state.toLowerCase(), response_json['state'])
+
+    if (current_state.toLowerCase() != response_json['state']) {
+        location.href = location.href
+    }
+
+}, 1000)

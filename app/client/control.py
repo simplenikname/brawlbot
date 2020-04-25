@@ -38,7 +38,8 @@ class CtrlWrapper:
     def __init__(self, settings: Settings):
 
         self.settings = settings
-        self.running_bots_count = 0 
+        self.running_bots = []
+        self.running_bots_count = 0
 
     def __start_bot(self, bot):
         bot.start()
@@ -54,15 +55,13 @@ class CtrlWrapper:
 
     def stop_all_bots(self):
         for bot in self.running_bots:
-            bot.kill()
-            self.running_bots_count -= 1
-            self.running_bots.remove(bot)
-
+            self.__stop_bot(bot)
+ 
     def initialize_bot(self):
         if self.running_bots_count >= 1:
             print(f'[{get_time()}] {Fore.YELLOW}!{Fore.RESET} Отслежена попытка запустить бота в параллельном выполнении... Запуск бота отклонен.')
         else:
-            brawlbot = Bot(self.settings)
+            brawlbot = Bot(self.settings, self)
             print(f'[{get_time()}] {Fore.GREEN}✓{Fore.RESET} Инициализация бота завершена. Запуск...')
             self.__start_bot(brawlbot)
 
