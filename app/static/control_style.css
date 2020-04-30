@@ -7,14 +7,14 @@
     outline: none;
 }
 
-.robot {
+#robot {
     width: 24px;
     height: 24px;
     left: 24px;
     top: 38px;
 }
 
-.go__settings {
+#to_settings_lbl {
     width: 161px;
     height: 17px;
     left: 148px;
@@ -23,14 +23,14 @@
     line-height: 17px;
 }
 
-.arrow {
+#arrow {
     width: 15.95px;
     height: 14.7px;
     left: 323.05px;
     top: 42.65px;
 }
 
-.state__pre {
+#state_lbl {
     width: 100px;
     height: 20px;
     left: 27px;
@@ -40,7 +40,7 @@
     line-height: 18px;
 }
 
-.state {
+#bot_state {
     width: 61px;
     height: 19px;
     top: 90px;
@@ -50,21 +50,21 @@
     /* color: #00ff19; */
 }
 
-.state__img {
+#state_img {
     width: 11px;
     height: 11px;
     left: 321px;
     top: 94px;
 }
 
-.brawlstars {
+#brawlstars {
     width: 189px;
     height: 150px;
     left: -44px;
     top: 139px;
 }
 
-.panel__ctrl {
+.panel_ctrl {
     width: 187px;
     height: 138px;
     left: 152px;
@@ -74,7 +74,7 @@
     border-radius: 20px;
 }
 
-.panel__ctrl_span {
+#panel_ctrl_lbl {
     width: 165px;
     height: 18px;
     left: 165px;
@@ -83,15 +83,15 @@
     line-height: 18px;
 }
 
-.panel__stop,
-.panel__start {
+#bot_stop,
+#bot_start {
     border: none;
     border-radius: 20px;
     color: #f2f2f2;
     font-weight: bold;
 }
 
-.panel__start {
+#bot_start {
     width: 123px;
     height: 32px;
     left: 165px;
@@ -99,7 +99,7 @@
     background: #00ff19;
 }
 
-.panel__stop {
+#bot_stop {
     width: 97px;
     height: 32px;
     left: 165px;
@@ -107,7 +107,7 @@
     background: #ff5656;
 }
 
-.panel__debug {
+.panel_debug {
     width: 358px;
     height: 197px;
     left: -19px;
@@ -117,7 +117,7 @@
     border-radius: 20px;
 }
 
-.panel__debug_title {
+#panel_debug_lbl {
     width: 149px;
     height: 18px;
     left: 16px;
@@ -126,14 +126,14 @@
     font-size: 15px;
 }
 
-.checkbox1 {
+#log_requests_to_server {
     width: 18px;
     height: 18px;
     left: 16px;
     top: 361px;
 }
 
-.checkbox2 {
+#log_to_file {
     width: 18px;
     height: 18px;
     left: 16px;
@@ -141,7 +141,7 @@
     background-color: #f2f2f2;
 }
 
-.checkbox3 {
+#log_to_console {
     width: 18px;
     height: 18px;
     left: 16px;
@@ -149,7 +149,7 @@
     background: #eeeeee;
 }
 
-.checkbox4 {
+#log_level_debug {
     width: 18px;
     height: 18px;
     left: 16px;
@@ -157,48 +157,66 @@
     background: #eeeeee;
 }
 
-.log_requests_to_server_text {
+#log_requests_to_server_lbl {
     width: 231px;
     height: 17px;
     left: 48px;
     top: 361px;
-    font-style: normal;
-    font-weight: normal;
     font-size: 14px;
     line-height: 16px;
 }
 
-.log__file {
+#log_to_file_lbl {
     width: 264px;
     height: 17px;
     left: 48px;
     top: 393px;
-    font-style: normal;
-    font-weight: normal;
     font-size: 14px;
     line-height: 16px;
 }
 
-.log__console {
+#log_to_console_lbl {
     width: 166px;
     height: 17px;
     left: 48px;
     top: 425px;
-    font-style: normal;
-    font-weight: normal;
     font-size: 14px;
     line-height: 16px;
 }
 
-.log__debug {
+#log_debug_lbl {
     width: 194px;
     height: 17px;
     left: 48px;
     top: 457px;
-    font-style: normal;
-    font-weight: normal;
     font-size: 14px;
     line-height: 16px;
+}
+
+#infinity_mode_lbl {
+    width: 158px;
+    height: 18px;
+    left: 24px;
+    top: 523px;
+    font-size: 16px;
+    line-height: 18px;
+}
+
+#infinity_mode_description {
+    width: 245px;
+    height: 32px;
+    left: 25px;
+    top: 547px;
+    font-size: 14px;
+    line-height: 16px;
+    color: #b9b9b9;
+}
+
+#infinity_mode {
+    width: 19px;
+    height: 19px;
+    left: 300px;
+    top: 523px;
 }
 
 .line__bottom {
@@ -211,42 +229,13 @@
     transform: matrix(1, 0, 0, -1, 0, 0);
 }
 
-.by {
+#by {
     /* Made with ❤ to Bots */
-    position: absolute;
     width: 120px;
     height: 12px;
     left: 122px;
     top: 614px;
-    font-style: normal;
-    font-weight: normal;
     font-size: 12px;
     line-height: 14px;
     color: #000000;
-}
-
-#infinity__mode__text {
-    width: 158px;
-    height: 18px;
-    left: 24px;
-    top: 523px;
-    font-size: 16px;
-    line-height: 18px;
-}
-
-#infinity__mode__description {
-    width: 245px;
-    height: 32px;
-    left: 25px;
-    top: 547px;
-    font-size: 14px;
-    line-height: 16px;
-    color: #b9b9b9;
-}
-
-#infinity_checkbox {
-    width: 19px;
-    height: 19px;
-    left: 300px;
-    top: 523px;
 }
