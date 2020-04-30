@@ -11,25 +11,49 @@ let settings = {
     SIMPLIFIED_ALGORITHMS_MODE: true
 };
 
+let keys = ['LOG_TO_FILE', 'LOG_TO_CONSOLE', 'LOG_LEVEL_DEBUG', 'LOG_REQUESTS_TO_SERVER', 'MULTIPLE_MODE', 'INFINITY_MODE', 'SIMPLIFIED_ALGORITHMS_MODE']
+
 const DEBUG = true;
 
-// function set_listener(identifier, proprty) {
-//     try {
-//         document.getElementById(identifier).onchange = function() {
-//             proprty == true ? (proprty = false) : (proprty = true);
-//             console.log(`${identifier} ${proprty}`);
-//         };
-//     } catch (e) {
-//         if (DEBUG) {
-//             console.log("Ошибка: " + e);
-//         }
-//     }
-// }
+function setCookie(name, value, options = {}) {
+
+    let updatedCookie = encodeURIComponent(name) + "=" + encodeURIComponent(value);
+
+    for (let optionKey in options) {
+        updatedCookie += "; " + optionKey;
+        let optionValue = options[optionKey];
+        if (optionValue !== true) {
+            updatedCookie += "=" + optionValue;
+        }
+    }
+
+    document.cookie = updatedCookie;
+}
+
+function getCookie(name) {
+    let matches = document.cookie.match(new RegExp(
+        "(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
+    ));
+    return matches ? decodeURIComponent(matches[1]) : undefined;
+}
+
+function load_settings_from_cookie() {
+    result = []
+    keys.forEach(key => {
+        result += getCookie(key)
+    });
+}
+
+document.onload = () => {
+    cookie_settings = load_settings_from_cookie()
+    document.querySelectorAll(".check").forEach(el => {
+        el.onchange = () => localStorage.setItem(el.id, el.checked);
+        el.checked = localStorage.getItem(el.id) === "true";
+    })
+}
 
 function postData(url = "", data = {}) {
-    // let t = JSON.stringify(data)
     try {
-        
         let send = JSON.stringify(data);
         console.log(send);
         fetch(url, {
@@ -51,11 +75,6 @@ function postData(url = "", data = {}) {
 if (document.title == "Контроль бота") {
 
     // control.html
-    // set_listener("infinity_checkbox", settings.INFINITY_MODE);
-    // set_listener("log_to_file_checkbox", settings.LOG_TO_FILE);
-    // set_listener("log_to_console_checkbox", settings.LOG_TO_CONSOLE);
-    // set_listener("log_level_debug_checkbox", settings.LOG_LEVEL_DEBUG);
-    // set_listener("log_requests_to_server_checkbox", settings.LOG_REQUESTS_TO_SERVER);
 
     let infinity = document.getElementById('infinity_checkbox').onchange = function() {
         settings.INFINITY_MODE == false ? (settings.INFINITY_MODE = true) : (settings.INFINITY_MODE = false)
@@ -85,8 +104,6 @@ if (document.title == "Контроль бота") {
 } else if (document.title == "Настройки") {
 
     // settings.html
-    // set_listener("multiple_mode_checkbox", settings.MULTIPLE_MODE);
-    // set_listener("simplified_mode_checkbox", settings.SIMPLIFIED_ALGORITHMS_MODE);
 
     let multiple_mode = document.getElementById('multiple_mode_checkbox').onchange = function() {
         settings.MULTIPLE_MODE == false ? (settings.MULTIPLE_MODE = true) : (settings.MULTIPLE_MODE = false)
@@ -122,9 +139,6 @@ const current_state = document.getElementById('bot__state').innerText
 setInterval(async() => {
     const response = await fetch(document.baseURI + "state", {
         method: "POST",
-        // headers: {
-        //     "Content-Type": "application/json",
-        // }
     });
 
     const response_json = await response.json();
