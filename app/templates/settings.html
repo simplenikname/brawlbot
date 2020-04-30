@@ -4,29 +4,29 @@
 <title>Настройки</title>
 {% endblock %} {% block content %}
 <div>
-    <img src="{{ url_for('static', filename='./images/Robot(E99A).svg')}}" alt="" class="robot">
+    <img src="{{ url_for('static', filename='./images/Robot(E99A).svg')}}" id="robot">
     <a href="/">
-        <span class="to_control">Перейти к управлению</span>
-        <img src="{{ url_for('static', filename='./images/arrow.svg')}}" alt="" class="arrow">
+        <span id="to_control">Перейти к управлению</span>
+        <img src="{{ url_for('static', filename='./images/arrow.svg')}}" id="arrow">
     </a>
 
-    <span class="status_text">Статус бота</span>
-    <span class="status">ONLINE</span>
-    <img src="{{ url_for('static', filename='./images/green-ellipse.svg')}}" alt="" class="eclipse">
+    <span id="status_lbl">Статус бота</span>
+    <span id="status">ONLINE</span>
+    <img src="{{ url_for('static', filename='./images/green-ellipse.svg')}}" id="eclipse">
 </div>
 
 <div>
-    <span class="multiple1">Множественный режим</span>
-    <span class="description1">Режим работы бота, при котором он будет работать до тех пор, пока в игре можно получить
+    <!-- блок множественного режима -->
+    <span id="multiple_mode_lbl">Множественный режим</span>
+    <span id="multiple_mode_description">Режим работы бота, при котором он будет работать до тех пор, пока в игре можно получить
         звездные очки</span>
+    <input type="checkbox" id="multiple_mode">
 
-    <span class="multiple2">Упрощенный режим</span>
-    <span class="description2">Бот использует упрощенные алгоритмы атаки и передвижения чтобы гарантировать исправную
+    <!-- блок упрощенного режима -->
+    <span id="simplified_mode_lbl">Упрощенный режим</span>
+    <span id="simplified_mode_description">Бот использует упрощенные алгоритмы атаки и передвижения чтобы гарантировать исправную
         работу и максимальную производительность</span>
-
-
-    <input type="checkbox" class="multiple_mode_checkbox" id="multiple_mode_checkbox">
-    <input type="checkbox" class="simplefield_mode_checkbox" id="simplefield_mode_checkbox">
+    <input type="checkbox" id="simplified_mode">
 
     <script src="{{ url_for('static', filename='script.js') }}" type="module"></script>
 </div>

@@ -8,7 +8,7 @@
   position: absolute;
 }
 
-.robot {
+#robot {
   width: 24px;
   height: 24px;
   left: 24px;
@@ -19,7 +19,7 @@
   line-height: 24px;
 }
 
-.to_control {
+#to_control {
   width: 165px;
   height: 17px;
   left: 148px;
@@ -29,7 +29,7 @@
   line-height: 17px;
 }
 
-.arrow {
+#arrow {
   width: 16px;
   height: 16px;
   left: 323px;
@@ -40,7 +40,7 @@
   line-height: 16px;
 }
 
-.status_text {
+#status_lbl {
   width: 100px;
   height: 20px;
   left: 27px;
@@ -50,7 +50,7 @@
   line-height: 18px;
 }
 
-.status {
+#status {
   width: 61px;
   height: 19px;
   left: 255px;
@@ -62,14 +62,14 @@
   color: #00ff19;
 }
 
-.eclipse {
+#eclipse {
   width: 11px;
   height: 11px;
   left: 321px;
   top: 94px;
 }
 
-.multiple1 {
+#multiple_mode_lbl {
   width: 182px;
   height: 18px;
   left: 19px;
@@ -80,7 +80,7 @@
   color: #313636;
 }
 
-.description1 {
+#multiple_mode_description {
   width: 245px;
   height: 64px;
   left: 19px;
@@ -91,7 +91,7 @@
   color: #b9b9b9;
 }
 
-.multiple2 {
+#simplified_mode_lbl {
   width: 156px;
   height: 18px;
   left: 19px;
@@ -101,7 +101,7 @@
   line-height: 18px;
 }
 
-.description2 {
+#simplified_mode_description {
   width: 245px;
   height: 80px;
   left: 19px;
@@ -112,14 +112,14 @@
   color: #b9b9b9;
 }
 
-.multiple_mode_checkbox {
+#multiple_mode {
   width: 31px;
   height: 14px;
   left: 293px;
   top: 130px;
 }
 
-.simplefield_mode_checkbox {
+#simplified_mode{
   width: 31px;
   height: 14px;
   left: 293px;
