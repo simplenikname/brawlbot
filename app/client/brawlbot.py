@@ -3,17 +3,18 @@ from threading import Thread
 from time import sleep
 
 from colorama import Fore, init
-from pyautogui import click, press, keyDown, keyUp, size, center, Point
+from pyautogui import click, press, keyDown, keyUp, Point
 
 from app.client.utils import (continue_if_not_locate_on_screen, find, on_screen,
-                   wait_until_locate_on_screen)
+                              wait_until_locate_on_screen)
 
 init()
+
 
 class Worker(Thread):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, daemon=True, **kwargs)
-        self.running = False 
+        self.running = False
         self.killed = False
 
     def kill(self):
@@ -23,7 +24,7 @@ class Worker(Thread):
 class Walker(Worker):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self.move_key = 'w' 
+        self.move_key = 'w'
 
     def __key_down(self):
         keyUp(self.move_key)
@@ -60,14 +61,14 @@ class Bot(Worker):
         self.host = host
         self.settings = settings
 
-           
+        self.play_button = None
+
     def log_to_console(self,
                        message,
-                       level: str = 'info',
-                       **kwargs):
-        '''
+                       level: str = 'info'):
+        """
         level - succ, erro, warn, info, debg
-        '''
+        """
         if level == 'succ':
             display_mode = f'{Fore.GREEN}[✓]{Fore.RESET}'
         elif level == 'erro':
@@ -79,7 +80,7 @@ class Bot(Worker):
         elif level == 'info':
             display_mode = f'{Fore.CYAN}[~]{Fore.RESET}'
         else:
-            return  
+            return
             # display_mode = f'{Fore.BLUE}[*]{Fore.RESET}' # •
         date = datetime.strftime(datetime.now(), '%H:%M:%S')
         message = f'[{date}] {display_mode} {message}'
@@ -97,11 +98,12 @@ class Bot(Worker):
             # self.log_to_console('', level='erro')
             self.host.stop_all_bots()
             return 1
- 
+
     def start_battle(self):
         click(self.play_button)
 
-    def wait_loading(self):
+    @staticmethod
+    def wait_loading():
         continue_if_not_locate_on_screen('./app/client/images/battle/loading.png')
 
     def append_demons(self, demons):
@@ -128,7 +130,7 @@ class Bot(Worker):
         self.log_to_console('Определение результатов боя...')
         found_data = {}
         # определение результатов боя - победа или поражение
-        if battle_result := find('./app/client/images/battle/win.png'):
+        if find('./app/client/images/battle/win.png'):
             found_data['battle_result'] = 'Победа'
         else:
             found_data['battle_result'] = 'Поражение'
@@ -140,7 +142,7 @@ class Bot(Worker):
         self.log_to_console(found_data['battle_result'])
 
     def check_chest(self, t=.5):
-        chest = Point(x=414, y=968) # FHD
+        chest = Point(x=414, y=968)  # FHD
         self.log_to_console('Обнаружение сундука...')
         click(chest)
         sleep(t if t > 0 else .5)
@@ -151,7 +153,8 @@ class Bot(Worker):
         while not self.killed:
             if not self.settings.start_from_battle_stage:
                 # проверка присудствия на экране кнопки ИГРАТЬ
-                if self.check_play_button() == 1: return
+                if self.check_play_button() == 1:
+                    return
                 # начатие боя
                 self.start_battle()
                 # ожидание окончания загрузки
@@ -176,5 +179,3 @@ class Bot(Worker):
             if self.settings.infinity_mode is False:
                 self.host.stop_all_bots()
                 return
-            
-

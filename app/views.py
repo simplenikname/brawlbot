@@ -6,7 +6,6 @@ from flask import render_template, request, url_for, jsonify
 from app import app
 from app.client.control import CtrlWrapper, Settings
 
-
 with open('./app/client/settings.json', 'r') as json:
     default_settings = load(json)
 ctrl = CtrlWrapper(default_settings)
@@ -63,6 +62,7 @@ def state():
     else:
         bot_state = {'state': 'offline'}
     return jsonify(bot_state), 200
+
 
 @app.errorhandler(404)
 def page_not_found(e):

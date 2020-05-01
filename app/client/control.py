@@ -1,13 +1,13 @@
-
 from datetime import datetime
 
-from colorama import Fore, init
+from colorama import Fore
 
 from app.client.brawlbot import Bot
 
 
 def get_time() -> str:
     return datetime.strftime(datetime.now(), "%H:%M:%S")
+
 
 class Settings:
 
@@ -56,15 +56,16 @@ class CtrlWrapper:
     def stop_all_bots(self):
         for bot in self.running_bots:
             self.__stop_bot(bot)
- 
+
     def initialize_bot(self):
         if self.running_bots_count >= 1:
-            print(f'[{get_time()}] {Fore.YELLOW}!{Fore.RESET} Отслежена попытка запустить бота в параллельном выполнении... Запуск бота отклонен.')
+            print(
+                f'[{get_time()}] {Fore.YELLOW}!{Fore.RESET} Отслежена попытка запустить бота в параллельном '
+                f'выполнении... Запуск бота отклонен.')
         else:
             brawlbot = Bot(self.settings, self)
             print(f'[{get_time()}] {Fore.GREEN}✓{Fore.RESET} Инициализация бота завершена. Запуск...')
             self.__start_bot(brawlbot)
-
 
     def start(self):
         if self.settings.start_mode == 'console':
