@@ -134,7 +134,7 @@ document.getElementById("bot_stop").onclick = function() {
     });
 };
 
-const current_state = document.getElementById('bot__state').innerText
+const current_state = document.getElementById('bot_state').innerText
 
 setInterval(async() => {
     const response = await fetch(document.baseURI + "state", {
