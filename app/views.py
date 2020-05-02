@@ -22,10 +22,10 @@ def add_header(response):
 @app.route('/control')
 def control():
     if ctrl.running_bots_count > 0:
-        state = 'online'
+        bot_state = 'online'
     else:
-        state = 'offline'
-    return render_template('control.html', state=state)
+        bot_state = 'offline'
+    return render_template('control.html', state=bot_state)
 
 
 @app.route('/settings', methods=['POST', 'GET'])
@@ -33,19 +33,20 @@ def settings():
     global ctrl
     if request.method == 'POST':
         action = request.get_json()['action']
-        settings = request.get_json()['config']
+        bot_settings = request.get_json()['config']
         if action == 'start':
             if ctrl.running_bots_count == 0:
                 configuration = Settings(
-                    settings.get('START_MODE') or default_settings.get('START_MODE'),
-                    settings.get('LOG_TO_FILE') or default_settings.get('LOG_TO_FILE'),
-                    settings.get('LOG_TO_CONSOLE') or default_settings.get('LOG_TO_CONSOLE'),
-                    settings.get('LOG_LEVEL_DEBUG') or default_settings.get('LOG_LEVEL_DEBUG'),
-                    settings.get('LOG_REQUESTS_TO_SERVER') or default_settings.get('LOG_REQUESTS_TO_SERVER'),
-                    settings.get('MULTIPLE_MODE') or default_settings.get('MULTIPLE_MODE'),
-                    settings.get('INFINITY_MODE') or default_settings.get('INFINITY_MODE'),
+                    bot_settings.get('START_MODE') or default_settings.get('START_MODE'),
+                    bot_settings.get('LOG_TO_FILE') or default_settings.get('LOG_TO_FILE'),
+                    bot_settings.get('LOG_TO_CONSOLE') or default_settings.get('LOG_TO_CONSOLE'),
+                    bot_settings.get('LOG_LEVEL_DEBUG') or default_settings.get('LOG_LEVEL_DEBUG'),
+                    bot_settings.get('LOG_REQUESTS_TO_SERVER') or default_settings.get('LOG_REQUESTS_TO_SERVER'),
+                    bot_settings.get('MULTIPLE_MODE') or default_settings.get('MULTIPLE_MODE'),
+                    bot_settings.get('INFINITY_MODE') or default_settings.get('INFINITY_MODE'),
                     False,
-                    settings.get('SIMPLIFIED_ALGORITHMS_MODE') or default_settings.get('SIMPLIFIED_ALGORITHMS_MODE'),
+                    bot_settings.get('SIMPLIFIED_ALGORITHMS_MODE') or
+                    default_settings.get('SIMPLIFIED_ALGORITHMS_MODE'),
                 )
                 ctrl = CtrlWrapper(configuration)
                 ctrl.start()
@@ -65,7 +66,7 @@ def state():
 
 
 @app.errorhandler(404)
-def page_not_found(e):
+def page_not_found(error):
     return '404'
 
 

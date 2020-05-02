@@ -13,44 +13,6 @@ let settings = {
 
 let keys = ['LOG_TO_FILE', 'LOG_TO_CONSOLE', 'LOG_LEVEL_DEBUG', 'LOG_REQUESTS_TO_SERVER', 'MULTIPLE_MODE', 'INFINITY_MODE', 'SIMPLIFIED_ALGORITHMS_MODE']
 
-const DEBUG = true;
-
-function setCookie(name, value, options = {}) {
-
-    let updatedCookie = encodeURIComponent(name) + "=" + encodeURIComponent(value);
-
-    for (let optionKey in options) {
-        updatedCookie += "; " + optionKey;
-        let optionValue = options[optionKey];
-        if (optionValue !== true) {
-            updatedCookie += "=" + optionValue;
-        }
-    }
-
-    document.cookie = updatedCookie;
-}
-
-function getCookie(name) {
-    let matches = document.cookie.match(new RegExp(
-        "(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
-    ));
-    return matches ? decodeURIComponent(matches[1]) : undefined;
-}
-
-function load_settings_from_cookie() {
-    result = []
-    keys.forEach(key => {
-        result += getCookie(key)
-    });
-}
-
-document.onload = () => {
-    cookie_settings = load_settings_from_cookie()
-    document.querySelectorAll(".check").forEach(el => {
-        el.onchange = () => localStorage.setItem(el.id, el.checked);
-        el.checked = localStorage.getItem(el.id) === "true";
-    })
-}
 
 function postData(url = "", data = {}) {
     try {
@@ -72,7 +34,7 @@ function postData(url = "", data = {}) {
 // описание лисенеров для настроек //
 //=================================//
 
-if (document.title == "Контроль бота") {
+if (document.title === "Контроль бота") {
 
     // control.html
 
@@ -145,7 +107,7 @@ setInterval(async() => {
 
     console.log(current_state.toLowerCase(), response_json['state'])
 
-    if (current_state.toLowerCase() != response_json['state']) {
+    if (current_state.toLowerCase() !== response_json['state']) {
         location.href = location.href
     }
 
