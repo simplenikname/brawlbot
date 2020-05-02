@@ -38,27 +38,27 @@ if (document.title === "Контроль бота") {
 
     // control.html
 
-    let infinity = document.getElementById('infinity_checkbox').onchange = function() {
+    let infinity = document.getElementById('infinity_mode').onchange = function() {
         settings.INFINITY_MODE == false ? (settings.INFINITY_MODE = true) : (settings.INFINITY_MODE = false)
         console.log(settings)
     }
 
-    let log_to_file = document.getElementById('log_to_file_checkbox').onchange = function() {
+    let log_to_file = document.getElementById('log_to_file').onchange = function() {
         settings.LOG_TO_FILE == false ? (settings.LOG_TO_FILE = true) : (settings.LOG_TO_FILE = false)
         console.log(settings)
     }
 
-    let log_to_console = document.getElementById('log_to_console_checkbox').onchange = function() {
+    let log_to_console = document.getElementById('log_to_console').onchange = function() {
         settings.LOG_TO_CONSOLE == true ? (settings.LOG_TO_CONSOLE = false) : (settings.LOG_TO_CONSOLE = true)
         console.log(settings)
     }
 
-    let log_level_debug = document.getElementById('log_level_debug_checkbox').onchange = function() {
+    let log_level_debug = document.getElementById('log_level_debug').onchange = function() {
         settings.LOG_LEVEL_DEBUG == false ? (settings.LOG_LEVEL_DEBUG = true) : (settings.LOG_LEVEL_DEBUG = false)
         console.log(settings)
     }
 
-    let logrequests_to_server = document.getElementById('log_requests_to_server_checkbox').onchange = function() {
+    let logrequests_to_server = document.getElementById('log_requests_to_server').onchange = function() {
         settings.LOG_REQUESTS_TO_SERVER == true ? (settings.LOG_REQUESTS_TO_SERVER = false) : (settings.LOG_REQUESTS_TO_SERVER = true)
         console.log(settings)
     }
@@ -67,12 +67,12 @@ if (document.title === "Контроль бота") {
 
     // settings.html
 
-    let multiple_mode = document.getElementById('multiple_mode_checkbox').onchange = function() {
+    let multiple_mode = document.getElementById('multiple_mode').onchange = function() {
         settings.MULTIPLE_MODE == false ? (settings.MULTIPLE_MODE = true) : (settings.MULTIPLE_MODE = false)
         console.log(settings)
     }
 
-    let simplefield_mode = document.getElementById('simplefield_mode_checkbox').onchange = function() {
+    let simplefield_mode = document.getElementById('simplified_mode').onchange = function() {
         settings.SIMPLIFIED_ALGORITHMS_MODE == true ? (settings.SIMPLIFIED_ALGORITHMS_MODE = false) : (settings.SIMPLIFIED_ALGORITHMS_MODE = true)
         console.log(settings)
     }
@@ -83,13 +83,13 @@ if (document.title === "Контроль бота") {
 // описание post запросов к серверу //
 //==================================//
 
-document.getElementById("panel__start").onclick = function() {
+document.getElementById("bot_start").onclick = function() {
     postData(document.baseURI + "settings", {
         action: "start",
         config: settings,
     });
 };
-document.getElementById("panel__stop").onclick = function() {
+document.getElementById("bot_stop").onclick = function() {
     postData(document.baseURI + "settings", {
         action: "stop",
         config: settings,
