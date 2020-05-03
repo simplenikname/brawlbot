@@ -63,6 +63,23 @@ class Bot(Worker):
 
         self.play_button = None
 
+        self.state: str
+        self.stage = None
+
+    @property
+    def state(self):
+        return 'online' if self.killed is False else 'offline'
+
+    @state.setter
+    def state(self, value):
+        self.state = value
+
+    def get_bot_info(self) -> dict:
+        return {
+            'state': self.state,
+            'stage': self.stage
+        }
+
     def log_to_console(self,
                        message,
                        level: str = 'info'):
@@ -95,7 +112,6 @@ class Bot(Worker):
             self.log_to_console(
                 'Кнопка ИГРАТЬ не обнаружена на экране. Завершение работы...',
                 level='warn')
-            # self.log_to_console('', level='erro')
             self.host.stop_all_bots()
             return 1
 
@@ -153,11 +169,13 @@ class Bot(Worker):
         while not self.killed:
             if not self.settings.start_from_battle_stage:
                 # проверка присудствия на экране кнопки ИГРАТЬ
+                self.stage = 'starting'
                 if self.check_play_button() == 1:
                     return
                 # начатие боя
                 self.start_battle()
                 # ожидание окончания загрузки
+                self.stage = 'loading battle '
                 self.wait_loading()
             # создание и запуск новых потоков-демонов осуществяющих передвижение
             # бойца по карте, использование супера, и атаку врагов во время боя
@@ -165,17 +183,22 @@ class Bot(Worker):
             self.append_demons([Walker(), Attacker()])
             self.run_demons()
             # вход в mainloop
+            self.stage = 'battle'
             while not on_screen('./app/client/images/battle/next.png'):
                 if self.killed is True:
                     self.kill_all_demons()
                     return
                 sleep(1)
             # завершение работы демонов
+            self.stage = 'end battle'
             self.kill_all_demons()
             # выход из боя и анализ результатов
+            self.stage = 'checking battle results'
             self.process_battle_results()
             # проверка возможности открыть сундук
             self.check_chest()
+            self.stage = 'ending'
             if self.settings.infinity_mode is False:
                 self.host.stop_all_bots()
                 return
+

@@ -21,7 +21,7 @@ def add_header(response):
 @app.route('/')
 @app.route('/control')
 def control():
-    if ctrl.running_bots_count > 0:
+    if ctrl.running_bot:
         bot_state = 'online'
     else:
         bot_state = 'offline'
@@ -35,7 +35,7 @@ def settings():
         action = request.get_json()['action']
         bot_settings = request.get_json()['config']
         if action == 'start':
-            if ctrl.running_bots_count == 0:
+            if ctrl.running_bot:
                 configuration = Settings(
                     bot_settings.get('START_MODE') or default_settings.get('START_MODE'),
                     bot_settings.get('LOG_TO_FILE') or default_settings.get('LOG_TO_FILE'),
@@ -51,14 +51,14 @@ def settings():
                 ctrl = CtrlWrapper(configuration)
                 ctrl.start()
         elif action == 'stop':
-            ctrl.stop_all_bots()
+            ctrl.stop_bot()
     return render_template('settings.html')
 
 
 @app.route('/state', methods=['POST'])
 def state():
     global ctrl
-    if ctrl.running_bots_count > 0:
+    if ctrl.running_bot:
         bot_state = {'state': 'online'}
     else:
         bot_state = {'state': 'offline'}

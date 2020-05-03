@@ -20,7 +20,6 @@ class Settings:
                  infinity_mode: bool,
                  start_from_battle_stage: bool,
                  simplified_algorithms_mode: bool):
-
         self.start_mode = start_mode
         self.start_from_battle_stage = start_from_battle_stage
 
@@ -38,34 +37,27 @@ class CtrlWrapper:
     def __init__(self, settings: Settings):
 
         self.settings = settings
-        self.running_bots = []
-        self.running_bots_count = 0
+        self.running_bot = None
 
-    def __start_bot(self, bot):
+    def start_bot(self, bot):
         bot.start()
         bot.log_to_console(f'Бот {bot} запущен', level='succ')
-        self.running_bots_count += 1
-        self.running_bots.append(bot)
+        self.running_bot = bot
 
-    def __stop_bot(self, bot):
+    def stop_bot(self, bot):
         bot.kill()
         bot.log_to_console(f'Бот {bot} остановлен', level='succ')
-        self.running_bots_count -= 1
-        self.running_bots.remove(bot)
-
-    def stop_all_bots(self):
-        for bot in self.running_bots:
-            self.__stop_bot(bot)
+        self.running_bot = None
 
     def initialize_bot(self):
-        if self.running_bots_count >= 1:
+        if self.running_bot:
             print(
                 f'[{get_time()}] {Fore.YELLOW}!{Fore.RESET} Отслежена попытка запустить бота в параллельном '
                 f'выполнении... Запуск бота отклонен.')
         else:
             brawlbot = Bot(self.settings, self)
             print(f'[{get_time()}] {Fore.GREEN}✓{Fore.RESET} Инициализация бота завершена. Запуск...')
-            self.__start_bot(brawlbot)
+            self.start_bot(brawlbot)
 
     def start(self):
         if self.settings.start_mode == 'console':
